@@ -8,22 +8,26 @@ pipeline {
 							pwd
 							ls
 							echo "this is BUILD stage"
+							sleep5
 							'''
 						}
 			}
 			stage('DEPLOY') {
 				steps {
 					echo "this is DEPLOY stage"
+					sh ' sleep 5'
 				}
 			}
 			stage('TEST1') {
 				steps {
-					sh 'echo "this is TEST1 stage"'   
+					sh 'echo "this is TEST1 stage"' 
+					sh ' sleep 5'					
 				}
 			}
 			stage('TEST2') {
 				steps {
-					echo "this is TEST2 stage"       
+					echo "this is TEST2 stage" 
+					sh ' sleep 5'					
 				}
 			}
 				
