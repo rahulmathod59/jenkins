@@ -3,10 +3,6 @@ pipeline {
 		stages {
 			stage ('BUILD'){
 				steps {
-#  using sh  block we can run a command
-#single line use sh ' ' -sh ' use any commands ls:pwd'
-#for multiple line script use sh '''     triple cots
-#							'''
 						sh '''
 							#!/bin/bash
 							pwd
