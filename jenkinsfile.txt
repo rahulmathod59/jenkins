@@ -13,12 +13,12 @@ pipeline {
 			}
 			stage('DEPLOY') {
 				steps {
-					echo "this is DEPLOY stage"       #it supports direct echocmd
+					echo "this is DEPLOY stage"
 				}
 			}
 			stage('TEST1') {
 				steps {
-					sh 'echo"this is TEST1 stage"'       
+					sh 'echo"this is TEST1 stage"'   
 				}
 			}
 			stage('TEST2') {
