@@ -1,0 +1,32 @@
+pipeline {
+	agent {label 'slave1'}
+		stages {
+			stage ('BUILD'){
+				steps {
+						sh '''
+							#!/bin/bash
+							pwd
+							ls
+							echo "this is BUILD stage"
+							'''
+						}
+			}
+			stage('DEPLOY') {
+				steps {
+					echo "this is DEPLOY stage"
+				}
+			}
+			stage('TEST1') {
+				steps {
+					sh 'echo "this is TEST1 stage"'   
+				}
+			}
+			stage('TEST2') {
+				steps {
+					echo "this is TEST2 stage"       
+				}
+			}
+				
+				
+		}
+}
