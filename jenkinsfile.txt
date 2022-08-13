@@ -1,0 +1,37 @@
+pipeline {
+	agent any
+		stages {
+			stage ('BUILD'){
+				steps {
+#  using sh  block we can run a command
+#single line use sh ' ' -sh ' use any commands ls:pwd'
+#for multiple line script use sh '''     triple cots
+#							'''
+						sh '''
+							#!/bin/bash
+							pwd
+							ls
+							echo "this is BUILD stage"
+							'''
+						}
+			}
+			stage('DEPLOY') {
+				steps {
+					echo "this is DEPLOY stage"       #it supports direct echocmd
+				}
+			}
+			stage('TEST1') {
+				steps {
+					sh 'echo"this is TEST1 stage"'       
+				}
+			}
+			stage('TEST2') {
+				steps {
+					echo "this is TEST2 stage"       
+				}
+			}
+				
+				
+		}
+}
+
