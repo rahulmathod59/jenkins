@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                    git branch: 'master', url: 'https://github.com/rahulmathod59/javaproject.git'
+                    git branch: 'main', url: 'https://github.com/rahulmathod59/javaproject.git'
                     sh '''
                         #!/bin/bash 
                         pwd 
