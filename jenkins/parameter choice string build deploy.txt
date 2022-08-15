@@ -3,7 +3,7 @@ pipeline {
 
     parameters {
         string(name: 'BRANCH', description: 'Enter the branch to build', defaultValue: 'main')
-        string(name: 'GIT_REPO', description: 'Enter the repo url', defaultValue: 'https://github.com/jaintpharsha/devops-june-2022.git')
+        string(name: 'GIT_REPO', description: 'Enter the repo url', defaultValue: 'https://github.com/rahulmathod59/jenkins.git')
         choice(name: 'STAGE', choices: ['build','deploy'], description: 'Stages to build')
     }
 
