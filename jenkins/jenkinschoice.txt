@@ -1,0 +1,42 @@
+pipeline {
+    agent none
+
+    parameters {
+        choice(name: 'STAGE', choices: ['build','deploy'], description: 'Stages to build')
+    }
+
+    stages {
+        stage('Build') {
+            agent any
+            steps {
+                script {
+                    if(params.STAGE == 'build')
+                    {
+                     
+                        sh '''
+                            #!/bin/bash 
+                            pwd 
+                            ls
+                            echo "This is a BUILD stage"
+                            sleep 5
+                        '''    
+                    }  
+                }       
+            }
+        }
+
+        stage('DEPLOY') {
+            agent { label 'slave1' } 
+            steps {
+                script {
+                    if(params.STAGE == 'deploy')
+                    {
+                        echo "This is a DEPLOY stage"
+                        sh 'sleep 5
+                     
+                    }
+                }       
+            }
+        }
+    }
+}
