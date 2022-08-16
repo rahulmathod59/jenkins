@@ -4,7 +4,6 @@ pipeline {
     parameters {
         choice(name: 'STAGE', choices: ['build','deploy'], description: 'Stages to build')
     }
-
     stages {
         stage('Build') {
             agent any
@@ -12,8 +11,7 @@ pipeline {
                 script {
                     if(params.STAGE == 'build')
                     {
-                     
-                        sh '''
+                                sh '''
                             #!/bin/bash 
                             pwd 
                             ls
@@ -32,9 +30,7 @@ pipeline {
                     if(params.STAGE == 'deploy')
                     {
                         echo "This is a DEPLOY stage"
-                        sh 'sleep 5
-                     
-                    }
+                                                 }
                 }       
             }
         }
