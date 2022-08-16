@@ -20,7 +20,7 @@ pipeline {
                         '''    
                    }       
             }
-        }
+        
 
         stage ('DEPLOY stage') {
            when {
@@ -36,5 +36,6 @@ pipeline {
                 }       
             }
         }
-    }
+   }
+   }
 }
