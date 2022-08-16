@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage ('BUILD stage') {
 			when {
-				expression { stage == 'BUILD'} 
+				expression { params.stage == 'BUILD'} 
 			}
 					steps {
 													
@@ -24,11 +24,8 @@ pipeline {
 
         stage ('DEPLOY stage') {
            when {
-				expression { stage == 'BUILD'} 
+				expression { params.stage == 'DEPLOY' } 
 			} 
-            steps {
-                script {
-                    if(params.stage == 'BUILD')
             steps {
                 
                     echo "This is a DEPLOY stage"
@@ -37,5 +34,4 @@ pipeline {
             }
         }
    }
-   }
-}
+   
