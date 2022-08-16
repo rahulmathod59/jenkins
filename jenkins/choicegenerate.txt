@@ -27,7 +27,7 @@ pipeline {
             agent { label 'slave1' } 
             steps {
                 script {
-                    if(params.STAGE == 'DEPLOY)
+                    if(params.STAGE == 'DEPLOY')
                     {
                         echo "This is a DEPLOY stage"
                                                  }
