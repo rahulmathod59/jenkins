@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    parameters {
+    choice(choices: ['Build','Deploy','Test'], description: 'select the stages to run', name: 'Stage')
+    }
+
+    stages {
+        stage ('Build') {
+        when {
+            expression { params.Stage == 'Build' }
+        }
+            steps {        
+                echo "this is build stage"
+            }
+        }  
+
+        stage ('Deploy') {
+        when {
+            expression { params.Stage == 'Deploy' }
+        }
+                steps {
+                    echo "this is deploy stage"
+                }
+        }
+
+        stage ('Test') {
+            when {
+                expression { params.Stage == 'Test' }
+            }
+                steps {
+                    echo "this is test"
+                    sh 'ls -lrt'
+                }
+        }
+    }     
+} 
