@@ -11,7 +11,7 @@ pipeline {
                 script {
                     if(params.STAGE == 'BUILD')
                     {
-                                sh '''
+                          sh '''
                             #!/bin/bash 
                             pwd 
                             ls
@@ -30,7 +30,7 @@ pipeline {
                     if(params.STAGE == 'DEPLOY')
                     {
                         echo "This is a DEPLOY stage"
-                                                 }
+                    }
                 }       
             }
         }
