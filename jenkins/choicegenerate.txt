@@ -4,7 +4,6 @@ pipeline {
     parameters {
   choice choices: ['build', 'deploy'], description: 'enter the stages to build', name: 'choice'
 }
-    }
     stages {
         stage('Build') {
             agent any
