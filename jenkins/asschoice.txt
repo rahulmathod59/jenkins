@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('DEPLOY stage') {
+        stage ('DEPLOY stage') {
            when {
 				expression { stage == 'BUILD'} 
 			} 
