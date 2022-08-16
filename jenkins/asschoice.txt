@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+
+    parameters {
+		choice choices: ['BUILD', 'DEPLOY'], description: 'select the stages to build', name: 'stage'
+	}
+    stages {
+        stage ('BUILD stage') {
+			when {
+				expression { stage == 'BUILD'} 
+			}
+					steps {
+													
+              				sh '''				
+                            #!/bin/bash 
+                            pwd 
+                            ls
+                            echo "This is a BUILD stage"
+                            sleep 5
+                        '''    
+                   }       
+            }
+        }
+
+        stage('DEPLOY stage') {
+           when {
+				expression { stage == 'BUILD'} 
+			} 
+            steps {
+                script {
+                    if(params.stage == 'BUILD')
+            steps {
+                
+                    echo "This is a DEPLOY stage"
+                    
+                }       
+            }
+        }
+    }
+}
