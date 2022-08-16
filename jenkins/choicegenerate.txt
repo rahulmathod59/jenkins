@@ -2,14 +2,14 @@ pipeline {
     agent none
 
     parameters {
-  choice choices: ['build', 'deploy'], description: 'enter the stages to build', name: 'choice'
+  choice choices: ['BUILD', 'DEPLOY'], description: 'select the stages to build', name: 'stage'
 }
     stages {
         stage('Build') {
             agent any
             steps {
                 script {
-                    if(params.STAGE == 'build')
+                    if(params.STAGE == 'BUILD')
                     {
                                 sh '''
                             #!/bin/bash 
@@ -27,7 +27,7 @@ pipeline {
             agent { label 'slave1' } 
             steps {
                 script {
-                    if(params.STAGE == 'deploy')
+                    if(params.STAGE == 'DEPLOY)
                     {
                         echo "This is a DEPLOY stage"
                                                  }
