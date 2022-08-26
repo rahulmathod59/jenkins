@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    environment {
+        dockerimage =''
+        registry = 'rahulmm/jenkinsdocker1'
+        registrycredential = '32daee19-37c1-48ba-b0e1-688b68c35f7d'
+    }
+    stages {
+        stage('checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rahulmathod59/jenkinsdocker.git']]])
+            }
+        }
+        stage('Build Docker image') {
+            steps {
+                script {
+                    dockerimage = docker.build registry
+                }
+            }
+        }
+        stage ('uploading image') {
+            steps {
+                script {
+                        docker.withRegistry( '', registryCredential ) {
+                        dockerimage.push()
+                    }    
+                }
+            }
+        }
+    }
+}
