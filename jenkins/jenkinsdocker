@@ -27,5 +27,12 @@ pipeline {
                 }
             }
         }
+		stage ('Docker Run') {
+			steps {
+				script {
+					dockerimage.run("-p 8085:8080 --name jenkinsdocker1container")
+				}
+			}
+		}	
     }
 }
